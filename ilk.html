@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arka Plan ve Koyun</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('DCIM/Camera/yer1.jpg'); /* Çimenliğin yolu */
+            background-size: cover; /* Arka plan tam olarak sayfayı kaplar */
+            background-position: center; /* Arka planı ortalar */
+            background-repeat: no-repeat; /* Arka plan tekrar etmez */
+            position: relative; /* Koyun resmini yerleştirmek için relative konumlandırma */
+        }
+
+        .content {
+            text-align: center;
+            color: white;
+            padding-top: 20%;
+        }
+
+        /* Bina için stil */
+        .bina-container {
+            position: fixed;
+            left: 56%; /* Soldan konumlandırma */
+            transform: translateX(-50%); /* Ortalamak için */
+            bottom: 355px;
+            width: 35px;
+            text-align: center;
+            cursor: pointer; /* Kullanıcıya tıklanabilir olduğunu göstermek için */
+        }
+
+        .bina {
+            width: 100%;
+            display: block;
+        }
+    
+        .bina1 {
+            width: 100px;
+            display: block; /* 'center' yerine 'block' kullanılmalı */
+            margin-top: 10px;
+            margin-left: 100px;
+        }
+   
+        .bina-text {
+            position: absolute;
+            top: 0; /* Yazının konumunu ayarlamak için */
+            left: 50%;
+            margin-top: -10px;
+            transform: translate(-50%, 0);
+            color: rgba(255, 255, 255, 0.5); /* Solgun beyaz renk */
+            font-size: 1px; /* Yazı boyutu */
+            white-space: nowrap;
+            pointer-events: none; /* Yazı üzerine tıklanmasını engeller */
+        }
+    
+        .bina-text1 {
+            position: absolute;
+            top: 0; /* Yazının konumunu ayarlamak için */
+            left: 50%;
+            margin-top: 7px;
+            transform: translate(-50%, 0);
+            color: white; /* Solgun beyaz renk */
+            font-size: 15px; /* Yazı boyutu */
+            white-space: nowrap;
+            pointer-events: none; /* Yazı üzerine tıklanmasını engeller */
+        }
+    
+        /* Modal için stil */
+        .modal {
+            position: fixed;
+            top: 0; /* Modalın konumunu üstten ayarladık */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* Arka planın biraz transparan olması */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* Modal aktif olduğunda */
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: rgba(0, 0, 0, 0.8); /* İçeriğin arka plan rengi */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;  /* İstediğiniz genişliği ayarlayın */
+            height: 70%;
+            max-width: 500px; /* Maksimum genişlik */
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+  
+        .rectangle1{
+            width: 90%;
+            height: 30px;
+            background-color: white;
+            border-radius: 10px;
+            position: absolute;
+            top: 220px;        
+        }
+  
+        .rectangle2{
+            width: 90%;
+            height: 30px;
+            background-color: white;
+            border-radius: 10px;
+            position: absolute;
+            top: 290px;
+        }
+  
+        .rectangle3{
+            width: 60%;
+            height: 50px;
+            left: 20%;
+            background-color: green;
+            border-radius: 10px;
+            position: absolute;
+            top: 370px;
+           
+        }
+    
+        .circle-background {
+            width: 90%;
+            height: 9.5%;
+            background-color: #333;
+            border-radius: 10px;
+            position: fixed;
+            left: 5%;
+            top: 88%; /* İstediğiniz konuma göre ayarlayın */
+        }
+    
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: gray;
+        }
+    
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    
+        .circle-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    
+        .fill {
+            width: 10%;
+            height: 100%;
+            background-color: green;
+            border-radius: 10px 0 0 10px; /* Sol tarafı yuvarlamak için */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Yazının rengi */
+            font-weight: bold; /* Yazıyı kalın yapmak için */
+            font-size: 16px; 
+        }
+    
+        .fill1 {
+            display: flex;
+            margin-top: 10px;
+            align-items: center;
+            justify-content: center;
+            color: black; /* Yazının rengi */
+            font-weight: bold; /* Yazıyı kalın yapmak için */
+            font-size: 25px; 
+        }
+    
+        /* Üstteki yazı için stil */
+        .label {
+            position: absolute;
+            top: -20px; /* Dikdörtgenin üst kısmında olacak şekilde konumlandırır */
+            left: 0;
+            font-size: 12px;
+            color: gray; /* Yazı rengi */
+            text-transform: lowercase; /* Küçük harflerle yazılması için */
+            font-family: Arial, sans-serif; /* Yazı tipi */
+       }
+     
+       .label {
+            position: absolute;
+            top: -20px; /* Dikdörtgenin hemen üstüne konumlandırır */
+            left: 0;
+            font-size: 12px;
+            color: gray; /* Yazı rengi */
+            text-transform: lowercase; /* Küçük harf */
+            font-family: Arial, sans-serif;
+       }
+    
+       .yazı1{
+           margin-top: -40px;
+           margin-left: 48%;
+           font-size: 20px;
+           color: white;
+       }
+    
+       .yazı2{
+           margin-top: 0px;
+           margin-left: 48%;
+           font-size: 20px;
+           color: white;
+       }
+    
+    </style>
+</head>
+<body>
+    
+  <div class="content">
+        <p></p>
+    </div>
+
+    <!-- Bina ve yazı -->
+    <div class="bina-container" onclick="openModal()">
+        <img src="DCIM/Camera/beyaz.png" alt="Bina" class="bina">
+        <div class="bina-text">seviyye <span class="seviyye">1</span></div>
+    </div>    
+    
+    <div class="yazı1">
+        10
+    </div>
+    
+    <div class="yazı2">
+        10
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal" id="modal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            <div class="bina-text1">seviyye <span class="seviyye">1</span></div>
+            <img src="DCIM/Camera/beyaz.png" alt="Bina" class="bina1">       
+            <p></p>
+            
+            <div class="rectangle1">
+                <div class="label">Seviyye</div>
+                <div class="fill"> <span class="seviyye">1</span> </div>
+            </div>
+            
+            <div class="rectangle2">
+                <div class="label">Saatlik kar</div>
+                <div class="fill">1</div>          
+            </div>
+            
+            <div class="rectangle3" onclick="checkAndUpdateValues()">
+                <div class="fill1">1</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="circle-background">
+        <div class="circle-container">
+            <a href="bb1.html" class="circle">
+                <img src="Hypic/home.jpg" alt="Daire 1">
+            </a>
+            <a href="bb2.html" class="circle">
+                <img src="Hypic/random1.jpg" alt="Daire 2">
+            </a>
+            <a href="link3.html" class="circle">
+                <img src="Hypic/random2.jpg" alt="Daire 3">
+            </a>
+            <a href="link4.html" class="circle">
+                <img src="Hypic/cüzdan.jpg" alt="Daire 4">
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+    
+        function closeModalOnOutsideClick(event) {
+            // Eğer modalın dışına tıklandıysa kapat
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+    
+        function checkAndUpdateValues() {
+            // Yazı1 ve fill1 içindeki değerleri alıyoruz
+            let yazı1 = document.querySelector('.yazı1');
+            let fill1 = document.querySelector('.fill1');
+            let seviyyeElements = document.querySelectorAll('.seviyye');
+
+            let yazı1Value = parseInt(yazı1.innerText);
+            let fill1Value = parseInt(fill1.innerText);
+            
+            // Eğer fill1 değeri yazı1'den küçükse
+            if (fill1Value < yazı1Value) {
+                // Modalı kapat
+                closeModal();
+                
+                // yazı1'den fill1 değerini çıkar ve sonucu yazı1'e yaz
+                yazı1.innerText = yazı1Value - fill1Value;
+                
+                // tüm seviyye elemanlarının değerini 1 artır
+                seviyyeElements.forEach((element) => {
+                    element.innerText = parseInt(element.innerText) + 1;
+                });
+            }
+        }
+    </script>
+    
+</body>
+</html>
