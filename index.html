@@ -332,6 +332,19 @@
                 // tüm seviyye elemanlarının değerini 1 artır
                 seviyyeElements.forEach((element) => {
                     element.innerText = parseInt(element.innerText) + 1;
+
+               fetch('/update_seviyye', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ seviyye_degeri: newSeviyye })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data.status))
+            .catch(error => console.error('Error:', error));
+           
+                
                 });
             }
         }
