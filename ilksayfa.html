@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap / Hesap Aç</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            display: flex;
+            justify-content: center;
+            height: 500vh;
+            margin: 0;
+        }
+    
+        .a1 {
+            position: absolute;
+            width: 100%;
+            height: 60px;
+            background-color: #222831;
+        }
+       
+        .a2 {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-top: 8px;
+            margin-left: 20px;
+            background-image: url('Hypic/lest.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */
+            border: 1px solid yellow;
+        }
+    
+        .a3 {
+            position: absolute;
+            width: 150px;
+            height: 150px;            
+            margin-top: 230px;
+            margin-left: 0px;
+            background-image: url('Pictures/Browser/kk1.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */
+        }
+    
+        .a4 {
+            position: absolute;
+            width: 220px;
+            height: 320px;            
+            margin-top: 1620px;
+            margin-left: 0px;
+            background-image: url('Pictures/Screenshots/apk1.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */
+        }
+    
+        .a5 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */       
+            position: absolute;
+            width: 150px;
+            height: 45px;
+            margin-top: 1950px;
+            background-color: red;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            align-items: center;
+            display: grid;
+        }
+    
+        .aa1 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */       
+            position: absolute;
+            width: 330px;
+            height: 75px;
+            margin-top: 2170px;            
+            border-radius: 0px;
+            color: white;
+            border-bottom: 1px solid red;
+        }
+    
+        .aa2 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            width: 330px;
+            height: 75px;
+            margin-top: 2260px;            
+            border-radius: 0px;
+            color: white;
+            border-bottom: 1px solid red;
+        }
+    
+        .aa3 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */      
+            position: absolute;
+            width: 330px;
+            height: 75px;
+            margin-top: 2350px;          
+            border-radius: 0px;
+            color: white;
+            border-bottom: 1px solid red;
+        }
+    
+        .aa4 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */                  
+            position: absolute;
+            width: 330px;
+            height: 75px;
+            margin-top: 2440px;          
+            border-radius: 0px;
+            color: white;
+            border-bottom: 1px solid red;
+        }
+    
+        .aa5 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */       
+            position: absolute;
+            width: 330px;
+            height: 75px;
+            margin-top: 2530px;           
+            border-radius: 0px;
+            color: white;           
+        }
+    
+        .aa1_1 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            background-image: url('DCIM/Camera/111.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */           
+            border-radius: 0px;
+            color: white;
+        }
+    
+        .aa1_2 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            background-image: url('DCIM/Camera/111.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */           
+            border-radius: 0px;
+            color: white;
+        }   
+    
+        .aa1_3 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            background-image: url('DCIM/Camera/111.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */           
+            border-radius: 0px;
+            color: white;
+        }
+    
+        .aa1_4 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            background-image: url('DCIM/Camera/111.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */           
+            border-radius: 0px;
+            color: white;
+        }
+    
+        .aa1_5 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            background-image: url('DCIM/Camera/111.jpg'); /* Burada beyaz alanın arka plan resmi */
+            background-size: cover; /* Resmi alanın tamamını kaplayacak şekilde ayarlar */
+            background-position: center; /* Resmi ortalar */           
+            border-radius: 0px;
+            color: white;
+        }
+    
+        .aaa1 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            width: 360px;
+            height: 500px;
+            margin-top: 2650px;           
+            border-radius: 0px;
+            color: white;  
+            background-color: white;            
+        }
+    
+        .aaa2 {
+            position: absolute;
+            width: 120px;
+            height: 30px;
+            margin-top: 50px; 
+            margin-left: 20px;            
+            border-radius: 0px;
+            color: white;  
+            border: 1px solid black;            
+        }
+    
+        .aaa3 {
+            position: absolute;
+            width: 120px;
+            height: 30px;
+            margin-top: 50px; 
+            margin-left: 220px;            
+            border-radius: 0px;
+            color: white;  
+            border: 1px solid black;            
+        }
+    
+        .aaa4 {
+            position: absolute;
+            width: 320px;
+            height: 1px;
+            margin-top: 110px; 
+            margin-left: 20px;            
+            border-radius: 0px;
+            color: white;  
+            border: 1px solid black;            
+        }
+    
+        .aaa4_1 {
+            position: absolute;
+            width: 320px;
+            height: 1px;
+            margin-top: 250px; 
+            margin-left: 20px;            
+            border-radius: 0px;
+            color: white;  
+            border: 1px solid black;            
+        }
+    
+        .aaa4_2 {
+            position: absolute;
+            width: 320px;
+            height: 1px;
+            margin-top: 380px; 
+            margin-left: 20px;            
+            border-radius: 0px;
+            color: white;  
+            border: 1px solid black;            
+        }
+    
+        .bb1 {
+            position: absolute;
+            font-size: 18px;
+            margin-left: 40px;
+        }
+    
+        .bb1_1 {
+            position: absolute;
+            font-size: 12px;
+            margin-top: 30px;
+            margin-left: 40px;
+        }
+    
+        .bbb1{
+            position: absolute;
+            font-size: 18px;
+            margin-top: 140px;
+            margin-left: 20px;
+            color: black;
+        }
+    
+        .bbb1_1{
+            position: absolute;
+            font-size: 18px;
+            margin-top: 280px;
+            margin-left: 20px;
+            color: black;
+        }
+    
+        
+        .b1 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            color: yellow;
+            margin-left: 60px;
+            margin-top: 5px;
+            font-size: 30px;
+            letter-spacing: 3px;
+            font-style: italic;
+            font-weight: 900;
+        }
+    
+        .b2 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            color: yellow;
+            margin-left: 230px;
+            margin-top: 5px;
+            font-size: 20px;
+            letter-spacing: 3px;
+            font-weight: 900;
+            background-color: blue;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    
+        .b3 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            color: white;
+            margin-left: 0px;
+            margin-top: 100px;
+            font-size: 30px;
+            letter-spacing: 3px;
+            font-style: italic;
+            font-weight: 900;
+            text-align: center;
+        }
+    
+        .b4 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            color: green;
+            margin-left: 0px;
+            margin-top: 400px;
+            font-size: 30px;
+            letter-spacing: 3px;
+            font-style: ;
+            font-weight: 1000;
+            text-align: center;
+        }
+    
+        .b5 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            color: green;
+            margin-left: 0px;
+            margin-top: 850px;
+            font-size: 30px;
+            letter-spacing: 3px;
+            font-style: ;
+            font-weight: 1000;
+            text-align: center;
+        }
+    
+        .b6 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            color: green;
+            margin-left: 0px;
+            margin-top: 1460px;
+            font-size: 30px;
+            letter-spacing: 3px;
+            font-style: ;
+            font-weight: 1000;
+            text-align: center;
+        }
+    
+        .b7 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            position: absolute;
+            color: white;
+            margin-left: 15px;
+            margin-right: 20px;
+            margin-top: 2100px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-style: ;
+            font-weight: 500;
+            
+        }
+    
+        .container {
+            padding: 20px;
+            text-align: center;
+            margin-top: 450px;
+            margin-left: -20px;
+        }
+    
+        .bonus-box {
+            background-color: #131a27;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .bonus-box h2 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            font-size: 50px;
+            color: #f5e08e;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+        .p1 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 20px;
+        }
+    
+        .p2 {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            margin-top: 30px;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .bonus-box button {
+            background-color: #3b82f6;
+            color: white;
+            padding: 15px 80px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    
+    
+        /*Kripto para listesi*/
+        .tabs {           
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tab {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            padding: 0px 10px;
+            margin: 0 5px;
+            background-color: #CBCFDC;
+            color: #000;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .tab.active {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+            color: red;
+        }
+
+        /* Kripto para container */
+        .crypto-container {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .crypto-row {
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */       
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7px 0px;            
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #CBCFDC;
+            color: black;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .crypto-row:hover {
+            background-color: #444;
+        }
+
+        .crypto-name {
+            font-weight: bold;
+            font-size: 15px;
+            margin-left: 20px;
+        }
+
+        .crypto-price{
+            margin-right: 40px;
+        }
+
+        .change-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #CBCFDC;
+            color: white;
+            font-weight: bold;
+        }
+
+        .crypto-change {
+            color: white;
+        }
+
+        .coin-image {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: -15px;
+        }
+
+        /* Ek bilgi kutusu */
+        .crypto-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+    
+        .a1_1{
+            margin-top: 950px;
+            width: 320px;    
+            margin-left: -340px;
+            background-color: #CBCFDC;   
+            border-radius: 20px; 
+            border: 1px solid yellow;
+            height: 470px;
+        }
+    
+        .b2:active {
+            transform: scale(0.95)
+        }
+    
+        button:active {
+            transform: scale(0.95)
+        }
+    
+    </style>
+</head>
+<body>
+
+    
+    <div class="a1">
+        <div class="a2">
+            <span class="b1">LEST</span>
+            <span class="b2" onclick="window.location.href='kayıt.html'">Kaydol</span>            
+        </div>
+    </div>
+    
+    <span class="b3">Kripto Paralarınızı Güven Altında Saklıyoruz</span>
+    
+    <div class="a3">        
+    </div>
+    
+    <span class="b4">İlk Kayıt Bonusunu Almak İçin Kaydolun</span>
+    
+<div class="container">
+     <div class="bonus-box">
+            <h2>10</h2>
+            <p class="p1">USDT Bonus</p>
+            <p class="p2">Bonus almak için en az 100 USDT yatırın</p>
+            <button style="
+            user-select: none; /* Metin seçimini engeller */
+            -webkit-user-select: none; /* Safari için */
+            -ms-user-select: none; /* Eski Internet Explorer için */
+            cursor: default; /* İşaretçiyi normal moda çevirir */
+       " onclick="window.location.href='kayıt.html'">Kaydol</button>
+     </div>   
+</div>
+    
+    <span class="b5">300+ Kripto Para Sadece Lest de</span>
+    
+  <div class="a1_1">
+    <!-- Sekmeler -->
+    <div class="tabs">
+        <div class="tab active" data-sort="marketcap">Market Cap</div>
+        <div class="tab" data-sort="increase">Yükseliş (24s)</div>
+        <div class="tab" data-sort="decrease">Düşüş (24s)</div>
+        <div class="tab" data-sort="name">İsim (A-Z)</div>
+    </div>
+
+    <!-- Kripto Para Listesi -->
+    <div class="crypto-container" id="crypto-container">
+        <!-- Kripto paralar burada dinamik olarak eklenecek -->
+    </div>
+        
+    </div>
+    
+    <span class="b6">Her Yerde ve Her Zaman Ticaret yapın</span>
+    
+    <div class="a4">        
+    </div>
+    
+    <div class="a5">
+        Indir APK
+    </div>
+    
+
+    <span class="b7">Uyumluluğa ve Sizin Korumanıza Bağımlılığımız</span>
+    
+    <div class="aa1">
+        <span class="bb1">Üç Katmanlı Varlık Koruması</span>
+        <span class="bb1_1">Kullanıcıların fonları soğuk cüzdanlarda çevrimdışı olarak güvenli bir şekilde saklanır</span>
+        <div class="aa1_1"></div>
+    </div>
+    
+    <div class="aa2">
+        <span class="bb1">Üç Katmanlı Varlık Koruması</span>
+        <span class="bb1_1">Kullanıcıların fonları soğuk cüzdanlarda çevrimdışı olarak güvenli bir şekilde saklanır</span>
+        <div class="aa1_2"></div>
+    </div>
+    
+    <div class="aa3">
+        <span class="bb1">Üç Katmanlı Varlık Koruması</span>
+        <span class="bb1_1">Kullanıcıların fonları soğuk cüzdanlarda çevrimdışı olarak güvenli bir şekilde saklanır</span>
+        <div class="aa1_3"></div>
+    </div>
+    
+    <div class="aa4">
+        <span class="bb1">Üç Katmanlı Varlık Koruması</span>
+        <span class="bb1_1">Kullanıcıların fonları soğuk cüzdanlarda çevrimdışı olarak güvenli bir şekilde saklanır</span>
+        <div class="aa1_4"></div>
+    </div>
+    
+    <div class="aa5">
+        <span class="bb1">Üç Katmanlı Varlık Koruması</span>
+        <span class="bb1_1">Kullanıcıların fonları soğuk cüzdanlarda çevrimdışı olarak güvenli bir şekilde saklanır</span>
+        <div class="aa1_5"></div>
+    </div>
+    
+    
+    <div class="aaa1">
+        <div class="aaa2"></div>
+        <div class="aaa3"></div>
+        <div class="aaa4"></div>
+        <span class="bbb1">Bizi takip edin: </span>        
+        <div class="aaa4_1"></div>
+        <span class="bbb1_1">Uyqulamayı indirin:</span>        
+        <div class="aaa4_2"></div>
+    </div>
+    
+    
+<script>
+    
+    // Kripto paraların bilgilerini tutan dizi
+        let cryptoData = [
+            { id: 'bitcoin', symbol: 'BTCUSDT', name: 'BTC ...', image: 'Pictures/Browser/btc.png', decimals: 0 },
+            { id: 'ethereum', symbol: 'ETHUSDT', name: 'ETH ...', image: 'Pictures/Browser/eth.png', decimals: 0 },
+            { id: 'solana', symbol: 'SOLUSDT', name: 'SOL ...', image: 'Pictures/Browser/solana.png', decimals: 1 },
+            { id: 'dogecoin', symbol: 'DOGEUSDT', name: 'DOGE ...', image: 'Pictures/Browser/doge.jpg', decimals: 3 },
+            { id: 'tron', symbol: 'TRXUSDT', name: 'TRX ...', image: 'Pictures/Browser/trx.png', decimals: 3 },
+            { id: 'first-digital-usd', symbol: 'FDUSDUSDT', name: 'TET...', image: 'Pictures/Browser/usdt.png', decimals: 1 },
+            { id: 'binancecoin', symbol: 'BNBUSDT', name: 'BNB ...', image: 'Pictures/Browser/bnb.png', decimals: 1 },    
+        ]
+
+        // CoinGecko API'den ek verileri çekme
+        async function fetchCoinGeckoData() {
+            const ids = cryptoData.map(coin => coin.id).join(',');
+            const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids}`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Gelen verileri cryptoData dizisine ekle
+            cryptoData.forEach(coin => {
+                const coinData = data.find(item => item.id === coin.id);
+                if (coinData) {
+                    coin.market_cap = coinData.market_cap;
+                    coin.price_change_percentage_24h = coinData.price_change_percentage_24h;
+                }
+            });
+
+            // İlk olarak Market Cap sırasına göre sıralayalım
+            sortAndDisplay('marketcap');
+
+            // Binance WebSocket bağlantısını başlat
+            startWebSocket();
+        }
+
+        // Kripto paraları sıralama ve gösterme
+        function sortAndDisplay(criteria) {
+            switch(criteria) {
+                case 'marketcap':
+                    cryptoData.sort((a, b) => b.market_cap - a.market_cap);
+                    break;
+                case 'increase':
+                    cryptoData.sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h);
+                    break;
+                case 'decrease':
+                    cryptoData.sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h);
+                    break;
+                case 'name':
+                    cryptoData.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+            }
+
+            // Aktif sekmeyi güncelle
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.sort === criteria) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Kripto paraları ekrana yazdır
+            displayCryptos();
+        }
+
+        // Kripto paraları ekrana yazdırma
+        function displayCryptos() {
+            const container = document.getElementById('crypto-container');
+            container.innerHTML = '';
+
+            cryptoData.forEach(coin => {
+                const row = document.createElement('div');
+                row.className = 'crypto-row';
+                
+                // Coin resmi
+                const img = document.createElement('img');
+                img.src = coin.image;
+                img.alt = 'coin image';
+                img.className = 'coin-image';
+
+                // Coin ismi
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'crypto-name';
+                nameSpan.textContent = coin.name;
+
+                // Fiyat
+                const priceSpan = document.createElement('span');
+                priceSpan.className = 'crypto-price';
+                priceSpan.id = `${coin.id}-price`;
+
+                // Değişim yüzdesi
+                const changeBox = document.createElement('div');
+                changeBox.className = 'change-box';
+                changeBox.id = `${coin.id}-change-box`;
+
+                const changeSpan = document.createElement('span');
+                changeSpan.className = 'crypto-change';
+                changeSpan.id = `${coin.id}-change`;
+                changeBox.appendChild(changeSpan);
+                
+                // Bilgi kutusu
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'crypto-info';
+                infoDiv.appendChild(nameSpan);
+                infoDiv.appendChild(priceSpan);
+
+                // Satıra elemanları ekle
+                row.appendChild(img);
+                row.appendChild(infoDiv);
+                row.appendChild(changeBox);
+
+                container.appendChild(row);
+            });
+        }
+
+        // Sekme tıklama olayları
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                sortAndDisplay(tab.dataset.sort);
+            });
+        });
+
+        // Binance WebSocket bağlantısı
+       function startWebSocket() {
+            const streams = cryptoData.map(coin => coin.symbol.toLowerCase() + '@ticker').join('/');
+            const socket = new WebSocket(`wss://stream.binance.com:9443/stream?streams=${streams}`);
+
+       // Fiyat ve değişim oranını sürekli güncelle
+       socket.onmessage = function (event) {
+            const message = JSON.parse(event.data);
+            const data = message.data;
+            const symbol = data.s; // Sembol bilgisi
+
+        const coin = cryptoData.find(coin => coin.symbol === symbol);
+        if (coin) {
+            const decimals = coin.decimals || 0; // Eğer ondalık basamak belirtilmemişse varsayılan olarak 0 al
+            const price = parseFloat(data.c).toFixed(decimals); // Güncel fiyat
+            const change = parseFloat(data.P).toFixed(2); // Değişim yüzdesi
+
+            const priceElement = document.getElementById(`${coin.id}-price`);
+            const changeElement = document.getElementById(`${coin.id}-change`);
+            const changeBox = document.getElementById(`${coin.id}-change-box`);
+
+            // Fiyatı güncelle ve pozitif ise + işareti ekle
+            if (priceElement) priceElement.textContent = `$${price}`;
+
+            if (changeElement) {
+                // Değişim yüzdesini güncelle ve pozitif/negatif için + ve - işareti ekle
+                const changeText = `${change >= 0 ? '+' : ''}${change}%`;
+
+                // Yazının rengini değiştir
+                changeElement.innerHTML = `<span style="color: ${change >= 0 ? 'green' : '#ff0000'}">${changeText}</span>`;
+            }
+        }
+    };
+
+    // Bağlantı hatası durumunda mesaj göster
+    socket.onerror = function (error) {
+        console.error("WebSocket bağlantı hatası:", error);
+        alert("Bağlantı hatası oluştu.");
+    };
+
+    // Bağlantı kesildiğinde bilgi ver
+    socket.onclose = function () {
+        console.log("WebSocket bağlantısı kapatıldı.");
+        alert("Bağlantı kapandı.");
+    };
+}
+
+
+        // Sayfa yüklendiğinde verileri çek ve göster
+        fetchCoinGeckoData();
+    
+</script>
+
+</body>
+</html>
